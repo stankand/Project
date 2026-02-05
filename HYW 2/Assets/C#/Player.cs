@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Check check;
     [Header("状态")]
     public bool isGround;//是否在地面上
+    public bool isDie;
     private void Awake()
     {
         InputSystem = new InputSystem();
