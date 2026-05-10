@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public InputSystem InputSystem;
     private Vector2 Direction;
     private Rigidbody rb;
+    public Animator anim;
     [Header("玩家移动")]
     public float Speed;
     public float JumpF;
@@ -17,16 +18,21 @@ public class Player : MonoBehaviour
     [Header("状态")]
     public bool isGround;//是否在地面上
     public bool isDie;
+    public bool isRun;
     private void Awake()
     {
         InputSystem = new InputSystem();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
     private void OnEnable()
     {
         InputSystem.Enable();
         InputSystem.Player.Jump.started += Jump;
     }
+
+
+
     private void OnDisable()
     {
         InputSystem.Disable();
@@ -39,8 +45,13 @@ public class Player : MonoBehaviour
 
     public void Move()
     {
+        anim.SetBool("isRun", isRun);
         Direction = InputSystem.Player.Move.ReadValue<Vector2>();
         rb.velocity=new Vector2 (Direction.x*Speed,rb.velocity.y);
+        if (Direction.x!=0)
+            isRun = true;
+        else
+            isRun = false;
     }
     private void Jump(InputAction.CallbackContext context)
     {

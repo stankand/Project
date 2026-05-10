@@ -18,11 +18,13 @@ public class FlashLight : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Item>().OnLight = true;
+        //if(other!=null )
+        //    other.GetComponent<Item>().OnLightEvent = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        other.GetComponent<Item>().OnLight = false;
+        //if (other != null)
+        //    other.GetComponent<Item>().OnLightEvent = false;
     }
     public void OnLight()
     {

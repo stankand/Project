@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public bool OnLight=false;
+    public bool OnLightEvent=false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Player")
