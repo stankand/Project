@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public InputSystem InputSystem;
-    private Vector2 Direction;
+    public Vector2 Direction;
     private Rigidbody rb;
     public Animator anim;
+    public GameObject rig;
     [Header("Íæ¼ÒÒÆ¶¯")]
     public float Speed;
     public float JumpF;
@@ -48,10 +49,19 @@ public class Player : MonoBehaviour
         anim.SetBool("isRun", isRun);
         Direction = InputSystem.Player.Move.ReadValue<Vector2>();
         rb.velocity=new Vector2 (Direction.x*Speed,rb.velocity.y);
-        if (Direction.x!=0)
+        if (Direction.x != 0)
+        {
             isRun = true;
+            if(Direction.x>0)
+            rig.transform.localScale = new Vector3( rig.transform.localScale.x,100,rig.transform.localScale.z);
+            if (Direction.x < 0)
+                rig.transform.localScale = new Vector3(rig.transform.localScale.x, -100, rig.transform.localScale.z);
+        }
         else
+        {
             isRun = false;
+            rig.transform.localScale = new Vector3(rig.transform.localScale.x, rig.transform.localScale.y, rig.transform.localScale.z);
+        }
     }
     private void Jump(InputAction.CallbackContext context)
     {

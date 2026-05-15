@@ -12431,7 +12431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7b4dc8f4a121548be2085ee5aa2e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1303281962}
+  rig: {fileID: 1527015381}
   Speed: 5
   JumpF: 10
   check: {fileID: 926561591}
@@ -14303,6 +14304,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516335108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1527015381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1427564092133216371, guid: a0ba24c6f780c144fb96dbcf3bb20577,
+    type: 3}
+  m_PrefabInstance: {fileID: 2091249540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1527966428
 GameObject:
   m_ObjectHideFlags: 0
