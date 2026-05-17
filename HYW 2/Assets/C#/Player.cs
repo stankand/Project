@@ -68,6 +68,12 @@ public class Player : MonoBehaviour
         isGround = check.isCheck;
         if(isGround)
         rb.AddForce(new Vector3(0f, JumpF, 0f), ForceMode.Impulse);
+        anim.SetBool("jump", true);
+        Invoke("jumpOver",1f);
+        
     }
-
+    public void jumpOver()
+    {
+        anim.SetBool("jump", false);
+    }
 }
